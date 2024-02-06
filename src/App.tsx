@@ -16,6 +16,7 @@ const App = () => {
           <Route path="/admin/products" element={<Products />}></Route>
           <Route path="/admin/transaction" element={<Transaction />}></Route>
           <Route path="/admin/customers" element={<Customers />}></Route>
+          {/* CHARTS */}
         </Routes>
       </Suspense>
     </Router>
