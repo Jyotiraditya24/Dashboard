@@ -1,3 +1,4 @@
+
 @mixin heading($spacing:3px,$weight:00,$case:uppercase) {
     letter-spacing: $spacing;
     font-weight: $weight;
@@ -34,5 +35,3 @@
     height: $size;
     width: $size;
 }
-
-@use "mixin";
