@@ -1,38 +1,42 @@
-import { Location, useLocation, useNavigate } from "react-router-dom";
 import { IconType } from "react-icons";
-import { Link } from "react-router-dom";
-import { RiDashboardFill,RiShoppingBag3Fill } from "react-icons/ri";
-import {AiFillFileText} from "react-icons/ai"
-import {IoIosPeople} from "react-icons/io"
+import { Link, useLocation } from "react-router-dom";
+import { RiDashboardFill, RiShoppingBag3Fill } from "react-icons/ri";
+import { AiFillFileText } from "react-icons/ai";
+import { IoIosPeople } from "react-icons/io";
 
 const Sidebar = () => {
-  const DashboardData = [
+  const DashboardData: {
+    id: string;
+    url: string;
+    icon: IconType;
+    text: string;
+  }[] = [
     {
       id: "1",
       url: "/admin/dashboard",
-      icon: <RiDashboardFill />,
+      icon: RiDashboardFill,
       text: "Dashboard",
     },
     {
       id: "2",
       url: "/admin/products",
-      icon:<RiShoppingBag3Fill/>,
-      text:"Products"
-
+      icon: RiShoppingBag3Fill,
+      text: "Products",
     },
     {
       id: "3",
       url: "/admin/customers",
-      icon:<IoIosPeople/>,
-      text:"Customer"
+      icon: IoIosPeople,
+      text: "Customer",
     },
     {
       id: "4",
       url: "/admin/transaction",
-      icon:<AiFillFileText/>,
-      text:"Transaction"
+      icon: AiFillFileText,
+      text: "Transaction",
     },
   ];
+  const location = useLocation();
   return (
     <aside>
       <h2>Logo</h2>
@@ -41,9 +45,17 @@ const Sidebar = () => {
         <ul>
           {DashboardData.map((data) => (
             <li id={data.id}>
-              <Link to={data.url}></Link>
-              {data.icon}
-              {data.text}
+              <Link
+                to={data.url}
+                style={{
+                  backgroundColor: location.pathname.includes(data.url)
+                    ? "rgba(0,115,255,0.1)"
+                    : "white",
+                }}
+              >
+                <data.icon />
+                {data.text}
+              </Link>
             </li>
           ))}
         </ul>

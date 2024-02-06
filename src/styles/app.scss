@@ -38,5 +38,27 @@ a{
         &::-webkit-scrollbar{
             display: none;
         }
+        > div  {
+        margin: 2px 1px;
+            > h5 {
+                 @include heading(2px,100,uppercase);
+                opacity: 0.8;
+                margin: 1rem 0;
+                 }
+
+            >ul{
+                @include flex(column,unset,unset,0.5rem);
+                list-style: none;
+                >li{
+                    padding: 0.5rem 1rem;
+                    >a {
+                      border-radius: 10px;
+                      color: rgba(0,0,0,0.825);
+                      @include flex(row,unset);
+                    }
+                }
+             }
+        }
+
     }
 }

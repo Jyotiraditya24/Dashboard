@@ -7,7 +7,7 @@ const Dashboard = () => {
       <Sidebar/>
       {/* MAIN */}
       <main>
-     
+    
       </main>
     </div>
   )
