@@ -6,7 +6,11 @@ export default function Customers() {
       {/* SIDEBAR */}
       <Sidebar />
       {/* MAIN */}
-      <main></main>
+      <main className="dashboard">
+        <div className="bar">
+          bar 
+        </div>
+      </main>
     </div>
   );
 }
