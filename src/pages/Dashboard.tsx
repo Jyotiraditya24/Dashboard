@@ -47,6 +47,22 @@ const Dashboard = () => {
             color="rgb(76 0 255)"
           />
         </section>
+        {/* GRAPH SECTION */}
+        <section className="graph-container">
+          <div className="revenue-chart">
+            <h2>Revenue & Transaction</h2>
+          </div>
+          <div className="dashboard-categories">
+            <h2>Inventory</h2>
+            <div>
+              <CategoryItem
+                heading="Laptops"
+                value={10}
+                color="hsl(69,100%,50%)"
+              />
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
@@ -65,7 +81,7 @@ const WidgetItem = ({
   value,
   percent,
   color,
-  amount=false,
+  amount = false,
 }: WidgetItemProps) => (
   <article className="widget">
     {/* WIDGEINFO LEFT SIDE */}
@@ -84,17 +100,40 @@ const WidgetItem = ({
       )}
     </div>
     {/* WIDGET INFO RIGHT SIDE */}
-   <div
-  className="widgetCircle"
-  style={{
-    background: `conic-gradient(
+    <div
+      className="widgetCircle"
+      style={{
+        background: `conic-gradient(
       ${color} ${Math.abs(percent * 3.6)}deg,
       rgb(255,255,255) 0
     )`,
-  }}>
+      }}
+    >
       <span style={{ color: color }}>{percent}%</span>
     </div>
   </article>
+);
+
+interface CategoryItemProps {
+  color: string;
+  value: number;
+  heading: string;
+}
+
+const CategoryItem = ({ color, value, heading }: CategoryItemProps) => (
+  <div className="category-item">
+    <h5>{heading}</h5>
+    <div>
+      {/* one div for background and another div for indication */}
+      <div
+        style={{
+          backgroundColor: color,
+          width: `${value}%`,
+        }}
+      ></div>
+    </div>
+    <span>{value}</span>
+  </div>
 );
 
 export default Dashboard;
