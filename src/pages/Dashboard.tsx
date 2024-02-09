@@ -27,26 +27,24 @@ const Dashboard = () => {
             color="rgb(0,115,255)"
             amount={true}
           />
+
           <WidgetItem
-            heading="heading"
-            value={100}
-            percent={20}
-            color="rgb(0,115,255)"
-            amount={true}
-          />
-          <WidgetItem
-            heading="heading"
+            heading="Users"
             value={100}
             percent={-14}
-            color="rgb(0,115,255)"
-            amount={false}
+            color="rgb(0,198,202)"
           />
           <WidgetItem
-            heading="heading"
-            value={100}
+            heading="Transactions"
+            value={23000}
             percent={20}
-            color="rgb(0,115,255)"
-            amount={true}
+            color="rgb(255 196 0)"
+          />
+          <WidgetItem
+            heading="Product"
+            value={1000}
+            percent={30}
+            color="rgb(76 0 255)"
           />
         </section>
       </main>
@@ -67,7 +65,7 @@ const WidgetItem = ({
   value,
   percent,
   color,
-  amount,
+  amount=false,
 }: WidgetItemProps) => (
   <article className="widget">
     {/* WIDGEINFO LEFT SIDE */}
