@@ -88,7 +88,7 @@ const Dashboard = () => {
           <div className="gender-chart">
             <h2>Gender Ratio</h2>
             {/* CHART */}
-                <DonghnutChart labels={["Female","Male"]} data={[12,19]} backgroundColor={["hsl(340,82%,56%",""]}/>
+                <DonghnutChart labels={["Female","Male"]} data={[12,19]} backgroundColor={["hsl(340,82%,56%","rgba(53,162,235,0.8)"]} cutout={90}/>
             <p>
               <BiMaleFemale />
             </p>

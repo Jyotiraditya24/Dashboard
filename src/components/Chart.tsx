@@ -138,6 +138,7 @@ export const DonghnutChart = ({
         },
       },
     },
+    cutout,
   };
   return <Doughnut data={doughnutData} options={doughnutOptions} />;
 };
