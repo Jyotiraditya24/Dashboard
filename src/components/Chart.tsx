@@ -48,11 +48,25 @@ export function BarChart({
     indexAxis: horizontal ? "y" : "x",
     plugins: {
       legend: {
-        display: false, /*for line behind the graph */
+        display: true  /*for label to show */
       },
       title: {
-        display: true,
+        display: false,
         text: "Chart.js Bar Chart",
+      },
+    },
+    scales: {/*for line behind the graph */
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: false,
+        },
+      },
+      x: {
+        beginAtZero: true,
+        grid: {
+          display: false,
+        },
       },
     },
   };
@@ -64,11 +78,17 @@ export function BarChart({
         label: title1,
         data: data_1,
         backgroundColor: bgColor_1,
+        barThickness: "flex",
+        barPercentage: 1,
+        categoryPercentage: 0.4,
       },
       {
         label: title2,
         data: data_2,
         backgroundColor: bgColor_2,
+        barThickness: "flex",
+        barPercentage: 1,
+        categoryPercentage: 0.4,
       },
     ],
   };
