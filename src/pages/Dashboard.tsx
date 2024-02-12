@@ -5,6 +5,8 @@ import userImg from "../assets/userpic.png";
 import { HiTrendingUp, HiTrendingDown } from "react-icons/hi";
 import data from "../assets/data.json";
 import { BarChart } from "../components/Chart";
+import { BiMaleFemale } from "react-icons/bi";
+import {DonghnutChart} from "../components/Chart";
 
 interface Category {
   value: number;
@@ -57,9 +59,10 @@ const Dashboard = () => {
         <section className="graph-container">
           <div className="revenue-chart">
             <h2>Revenue & Transaction</h2>
+            {/* MAIN GRAPH */}
             <BarChart
-              data_1={[100,200,300,700,800]}
-              data_2={[400,500,500,1000,2000]}
+              data_1={[100, 200, 300, 700, 800]}
+              data_2={[400, 500, 500, 1000, 2000]}
               title1="Revenue"
               title2="Transaction"
               bgColor_1={"rgba(100,200,300)"}
@@ -79,6 +82,18 @@ const Dashboard = () => {
               ))}
             </div>
           </div>
+        </section>
+
+        <section className="transaction-container">
+          <div className="gender-chart">
+            <h2>Gender Ratio</h2>
+            {/* CHART */}
+                <DonghnutChart labels={["Female","Male"]} data={[12,19]} backgroundColor={["hsl(340,82%,56%",""]}/>
+            <p>
+              <BiMaleFemale />
+            </p>
+          </div>
+          {/* TABLE */}
         </section>
       </main>
     </div>

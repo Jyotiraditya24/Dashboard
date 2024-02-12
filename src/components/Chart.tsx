@@ -8,8 +8,9 @@ import {
   Legend,
   ChartData,
   ChartOptions,
+  ArcElement,
 } from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { Bar, Doughnut } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
@@ -17,7 +18,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ArcElement
 );
 
 interface BarChartProps {
@@ -48,14 +50,15 @@ export function BarChart({
     indexAxis: horizontal ? "y" : "x",
     plugins: {
       legend: {
-        display: true  /*for label to show */
+        display: true /*for label to show */,
       },
       title: {
         display: false,
         text: "Chart.js Bar Chart",
       },
     },
-    scales: {/*for line behind the graph */
+    scales: {
+      /*for line behind the graph */
       y: {
         beginAtZero: true,
         grid: {
@@ -94,3 +97,47 @@ export function BarChart({
   };
   return <Bar options={options} data={data} />;
 }
+
+interface DonghnutChartProps {
+  data: number[];
+  backgroundColor: string[];
+  labels: string[];
+  cutout?: number | string;
+  legend?: boolean;
+  offset?: number[];
+}
+
+export const DonghnutChart = ({
+  data,
+  backgroundColor,
+  labels,
+  cutout,
+  legend = true,
+  offset,
+}: DonghnutChartProps) => {
+  const doughnutData: ChartData<"doughnut", number[], string> = {
+    labels,
+    datasets: [
+      {
+        data,
+        backgroundColor,
+        borderWidth: 0,
+        offset,
+      },
+    ],
+  };
+
+  const doughnutOptions: ChartOptions<"doughnut"> = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: legend,
+        position: "bottom",
+        labels: {
+          padding: 40,
+        },
+      },
+    },
+  };
+  return <Doughnut data={doughnutData} options={doughnutOptions} />;
+};
