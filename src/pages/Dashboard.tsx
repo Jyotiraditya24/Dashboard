@@ -4,7 +4,12 @@ import { FaRegBell } from "react-icons/fa";
 import userImg from "../assets/userpic.png";
 import { HiTrendingUp, HiTrendingDown } from "react-icons/hi";
 import data from "../assets/data.json";
+import { BarChart } from "../components/Chart";
 
+interface Category {
+  value: number;
+  heading: string;
+}
 const Dashboard = () => {
   return (
     <div className="adminContainer">
@@ -52,16 +57,24 @@ const Dashboard = () => {
         <section className="graph-container">
           <div className="revenue-chart">
             <h2>Revenue & Transaction</h2>
+            <BarChart
+              data_1={[100,200,300,700,800]}
+              data_2={[400,500,500,1000,2000]}
+              title1="Revenue"
+              title2="Transaction"
+              bgColor_1={"rgba(100,200,300)"}
+              bgColor_2={"rgba(300,100,200)"}
+            />
           </div>
           <div className="dashboard-categories">
             <h2>Inventory</h2>
             <div>
-              {data.categories.map((d) => (
+              {data.categories.map((d: Category) => (
                 <CategoryItem
                   key={d.heading}
                   heading={d.heading}
                   value={d.value}
-                  color={`hsl(${d.value},100%,50%)`}
+                  color={`hsl(${d.value * 4},100%,50%)`}
                 />
               ))}
             </div>
