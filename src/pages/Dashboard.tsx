@@ -3,6 +3,7 @@ import { BsSearch } from "react-icons/bs";
 import { FaRegBell } from "react-icons/fa";
 import userImg from "../assets/userpic.png";
 import { HiTrendingUp, HiTrendingDown } from "react-icons/hi";
+import data from "../assets/data.json";
 
 const Dashboard = () => {
   return (
@@ -55,11 +56,14 @@ const Dashboard = () => {
           <div className="dashboard-categories">
             <h2>Inventory</h2>
             <div>
-              <CategoryItem
-                heading="Laptops"
-                value={10}
-                color="hsl(69,100%,50%)"
-              />
+              {data.categories.map((d) => (
+                <CategoryItem
+                  key={d.heading}
+                  heading={d.heading}
+                  value={d.value}
+                  color={`hsl(${d.value},100%,50%)`}
+                />
+              ))}
             </div>
           </div>
         </section>
@@ -132,7 +136,7 @@ const CategoryItem = ({ color, value, heading }: CategoryItemProps) => (
         }}
       ></div>
     </div>
-    <span>{value}</span>
+    <span>{value}%</span>
   </div>
 );
 
