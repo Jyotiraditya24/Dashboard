@@ -13,7 +13,7 @@ const TableHOC = <T extends Object>(
     };
     const table = useTable(options);
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-      table; 
+      table;
     return (
       <div className={containerClassName}>
         <h2 className="heading">{heading}</h2>
@@ -28,13 +28,20 @@ const TableHOC = <T extends Object>(
                 ))}
               </tr>
             ))}
-
-            <tbody {...getTableBodyProps()}>
-                  {
-                    rows.map((r))
-                  }
-            </tbody>
           </thead>
+
+          <tbody {...getTableBodyProps()}>
+            {rows.map((row) => {
+              prepareRow(row);
+              return (
+                <tr {...row.getRowProps()}>
+                  {row.cells.map((cell) => (
+                    <td {...cell.getCellProps()}> {cell.render("Cell")} </td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     );

@@ -3,10 +3,11 @@ import { BsSearch } from "react-icons/bs";
 import { FaRegBell } from "react-icons/fa";
 import userImg from "../assets/userpic.png";
 import { HiTrendingUp, HiTrendingDown } from "react-icons/hi";
-import data from "../assets/data.json";
+import {categories,transaction} from "../assets/data.json";
 import { BarChart } from "../components/Chart";
 import { BiMaleFemale } from "react-icons/bi";
-import {DonghnutChart} from "../components/Chart";
+import { DonghnutChart } from "../components/Chart";
+import DashboardTable from "../components/DashboardTable";
 
 interface Category {
   value: number;
@@ -72,7 +73,7 @@ const Dashboard = () => {
           <div className="dashboard-categories">
             <h2>Inventory</h2>
             <div>
-              {data.categories.map((d: Category) => (
+              {categories.map((d: Category) => (
                 <CategoryItem
                   key={d.heading}
                   heading={d.heading}
@@ -88,12 +89,17 @@ const Dashboard = () => {
           <div className="gender-chart">
             <h2>Gender Ratio</h2>
             {/* CHART */}
-                <DonghnutChart labels={["Female","Male"]} data={[12,19]} backgroundColor={["hsl(340,82%,56%","rgba(53,162,235,0.8)"]} cutout={90}/>
+            <DonghnutChart
+              labels={["Female", "Male"]}
+              data={[12, 19]}
+              backgroundColor={["hsl(340,82%,56%", "rgba(53,162,235,0.8)"]}
+              cutout={90}
+            />
             <p>
               <BiMaleFemale />
             </p>
           </div>
-          {/* TABLE */}
+          <DashboardTable data={transaction} />
         </section>
       </main>
     </div>
