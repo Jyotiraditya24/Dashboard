@@ -83,7 +83,7 @@ const TableHOC = <T extends Object>(
             <button disabled={!canPreviousPage} onClick={previousPage}>
               Previous
             </button>
-            <span>{`${pageIndex} Page of ${pageCount - 1}`}</span>
+            <span>{`${pageIndex+1} Page of ${pageCount }`}</span>
             <button disabled={!canNextPage} onClick={nextPage}>
               Next
             </button>
