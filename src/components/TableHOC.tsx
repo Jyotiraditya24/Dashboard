@@ -37,6 +37,7 @@ const TableHOC = <T extends Object>(
       canNextPage,
       canPreviousPage,
       pageCount,
+      gotoPage,
       state: { pageIndex },
     } = table;
     return (
@@ -78,16 +79,32 @@ const TableHOC = <T extends Object>(
           </tbody>
         </table>
         {showPagination && (
-          <div>
+          <div className="table-pagination">
             <button disabled={!canPreviousPage} onClick={previousPage}>
               Previous
             </button>
-            <span>{`${pageIndex} Page of ${pageCount}`}</span>
+            <span>{`${pageIndex} Page of ${pageCount - 1}`}</span>
             <button disabled={!canNextPage} onClick={nextPage}>
               Next
             </button>
           </div>
         )}
+        <div className="table-pagination">
+          <button
+            onClick={function onClick() {
+              return gotoPage(pageCount - 1);
+            }}
+          >
+            Last Page
+          </button>
+          <button
+            onClick={function onClick() {
+              return gotoPage(0);
+            }}
+          >
+            First Page
+          </button>
+        </div>
       </div>
     );
   };
