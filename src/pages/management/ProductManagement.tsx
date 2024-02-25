@@ -2,6 +2,9 @@ import * as React from "react";
 import { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 
+const img =
+  "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8&w=1000&q=804";
+
 const ProductManagement = () => {
   const [product, setProduct] = useState<{
     name: string;
@@ -9,7 +12,7 @@ const ProductManagement = () => {
     stock: number;
   }>({ name: "", price: 0, stock: 0 });
 
-  const [photo, setPhoto] = useState<string>("");
+  const [photo, setPhoto] = useState<string>(img);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -26,11 +29,11 @@ const ProductManagement = () => {
     const reader: FileReader = new FileReader();
     if (file) {
       reader.readAsDataURL(file);
-      reader.onloadend = ()=>{
-        if(typeof reader.result === "string"){
-            setPhoto(reader.result)
+      reader.onloadend = () => {
+        if (typeof reader.result === "string") {
+          setPhoto(reader.result);
         }
-      }
+      };
     }
   };
 
@@ -38,9 +41,20 @@ const ProductManagement = () => {
     <div className="adminContainer">
       <Sidebar />
       <main className="product-management">
+        <section>
+          <strong>ID -iquwfggqf</strong>
+          <img src={photo} alt="Product Image" />
+          <p>{product.name}</p>
+          {product.stock > 0 ? (
+            <span className="green">{product.stock} Available</span>
+          ) : (
+            <span className="red">Not Available</span>
+          )}
+          <h3>${product.price}</h3>
+        </section>
         <article>
           <form onSubmit={handleSubmit}>
-            <h2>New Product</h2>
+            <h2>Manage</h2>
             <div>
               <label htmlFor="name">Name</label>
               <input
