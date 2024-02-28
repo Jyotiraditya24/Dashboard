@@ -103,7 +103,7 @@ const ProductManagement = () => {
               />
             </div>
             {photo && <img src={photo} alt="New Image"></img>}
-            <button type="submit">Create</button>
+            <button type="submit">Update</button>
           </form>
         </article>
       </main>
