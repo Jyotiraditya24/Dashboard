@@ -48,7 +48,7 @@ const TransactionManagement = () => {
     total,
   } = order;
 
-  const updateHandler = (e) => {
+  const updateHandler = () => {
     setOrder((previousOrder) => ({
       ...previousOrder,
       status:
