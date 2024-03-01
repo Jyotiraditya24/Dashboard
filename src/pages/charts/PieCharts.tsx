@@ -69,7 +69,6 @@ const PieCharts = () => {
                 "hsl(300,80%,40%)",
                 "rgb(53, 162, 255)",
               ]}
-              legends={false}
               offset={[20, 30, 20, 30, 80]}
             />
           </div>
