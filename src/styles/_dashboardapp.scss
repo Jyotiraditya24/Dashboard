@@ -105,6 +105,7 @@
                     background-color: rgb(15, 15, 15);
                     color: white;
                     font-size: 0.8rem;
+                    @include flex()
             }
             &:hover>span{
                 opacity: 1;

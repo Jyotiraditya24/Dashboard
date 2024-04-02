@@ -20,12 +20,15 @@ const Coupon = () => {
     characters: false,
   });
   const [isCopied, setIsCopied] = useState<boolean>(false);
-  const [coupon, setIsCoupon] = useState<string>("");
+  const [coupon, setCoupon] = useState<string>("");
 
+  // HANLDES CHARACTERS,SYMBOLS AMD NUMBERS
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
     setIncludeStates((prev) => ({ ...prev, [name]: checked }));
   };
+
+  // HANDLES COUPON GENERATION
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (
@@ -34,11 +37,34 @@ const Coupon = () => {
       !includeStates.numbers
     ) {
       alert("Please Select One At Least");
+      return;
     }
+
+    let str: string = "";
+    if (includeStates.characters) {
+      str += allLetters;
+    }
+    if (includeStates.symbols) {
+      str += allSymbols;
+    }
+    if (!includeStates.numbers) {
+      str += allNumbers;
+    }
+
     let result: string = prefix || "";
-    
+    const loopLength: number = size - result.length;
+
+    for (let i = 0; i < loopLength; i++) {
+      const randomNumber: number = Math.floor(Math.random() * str.length);
+      result += str[randomNumber];
+    }
+    setCoupon(result);
   };
-  const copyText = (coupon: string) => {};
+
+  const copyText = async (coupon: string) => {
+    await window.navigator.clipboard.writeText(coupon);
+    setIsCopied((prev) => !prev);
+  };
   return (
     <div className="adminContainer">
       <Sidebar></Sidebar>
