@@ -1,0 +1,18 @@
+@media screen and (max-width: 1200px) {
+    .admin-container{
+        overflow: auto;
+    }
+    .dashboard{
+        .widget-container,.graph-container,.transaction-container{
+            justify-content: center;
+            flex-wrap: wrap;
+           
+        }
+        .graph-container{
+         padding: 2rem;
+        }
+        .transaction-container{
+            height: unset;
+        }
+    }
+}

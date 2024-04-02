@@ -1,5 +1,4 @@
-import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "../../components/Sidebar";
 
 interface ForStates {
@@ -65,6 +64,10 @@ const Coupon = () => {
     await window.navigator.clipboard.writeText(coupon);
     setIsCopied((prev) => !prev);
   };
+
+  useEffect(() => {
+    setIsCopied(false);
+  }, [coupon]);
   return (
     <div className="adminContainer">
       <Sidebar></Sidebar>
