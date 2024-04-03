@@ -2,8 +2,8 @@ import { ReactElement, useCallback, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Column } from "react-table";
-import Sidebar from "../components/Sidebar";
-import TableHOC from "../components/TableHOC";
+import Sidebar from "../components/Sidebar.js";
+import TableHOC from "../components/TableHOC.js";
 
 interface ProductType {
   photo: ReactElement;

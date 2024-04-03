@@ -1,13 +1,13 @@
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Sidebar.js";
 import { BsSearch } from "react-icons/bs";
 import { FaRegBell } from "react-icons/fa";
 import userImg from "../assets/userpic.png";
 import { HiTrendingUp, HiTrendingDown } from "react-icons/hi";
 import {categories,transaction} from "../assets/data.json";
-import { BarChart } from "../components/Chart";
+import { BarChart } from "../components/Chart.js";
 import { BiMaleFemale } from "react-icons/bi";
-import { DonghnutChart } from "../components/Chart";
-import DashboardTable from "../components/DashboardTable";
+import { DonghnutChart } from "../components/Chart.js";
+import DashboardTable from "../components/DashboardTable.js";
 
 interface Category {
   value: number;

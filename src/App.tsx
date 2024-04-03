@@ -1,20 +1,20 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import Loader from "./components/Loader";
-import ProductManagement from "./pages/management/ProductManagement";
-import TransactionManagement from "./pages/management/TransactionManagement";
+import Loader from "./components/Loader.js";
+import ProductManagement from "./pages/management/ProductManagement.js";
+import TransactionManagement from "./pages/management/TransactionManagement.js";
 
-const Dashboard = lazy(() => import("./pages/Dashboard"));
-const Products = lazy(() => import("./pages/Products"));
-const Transaction = lazy(() => import("./pages/Transaction"));
-const Customers = lazy(() => import("./pages/Customers"));
-const NewProduct = lazy(() => import("./pages/management/NewProduct"));
-const BarCharts = lazy(() => import("./pages/charts/BarCharts"));
-const PieCharts = lazy(() => import("./pages/charts/PieCharts"));
-const LineCharts = lazy(() => import("./pages/charts/LineCharts"));
-const Toss = lazy(() => import("./pages/apps/Toss"));
-const Stopwatch = lazy(() => import("./pages/apps/Stopwatch"));
-const Coupon = lazy(() => import("./pages/apps/Coupon"));
+const Dashboard = lazy(() => import("./pages/Dashboard.js"));
+const Products = lazy(() => import("./pages/Products.js"));
+const Transaction = lazy(() => import("./pages/Transaction.js"));
+const Customers = lazy(() => import("./pages/Customers.js"));
+const NewProduct = lazy(() => import("./pages/management/NewProduct.js"));
+const BarCharts = lazy(() => import("./pages/charts/BarCharts.js"));
+const PieCharts = lazy(() => import("./pages/charts/PieCharts.js"));
+const LineCharts = lazy(() => import("./pages/charts/LineCharts.js"));
+const Toss = lazy(() => import("./pages/apps/Toss.js"));
+const Stopwatch = lazy(() => import("./pages/apps/Stopwatch.js"));
+const Coupon = lazy(() => import("./pages/apps/Coupon.js"));
 
 const App = () => {
   return (

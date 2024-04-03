@@ -1,7 +1,7 @@
 import { ReactElement, useCallback, useState } from "react";
 import { Column } from "react-table";
-import Sidebar from "../components/Sidebar";
-import TableHOC from "../components/TableHOC";
+import Sidebar from "../components/Sidebar.js";
+import TableHOC from "../components/TableHOC.js";
 import { FaTrash } from "react-icons/fa";
 
 interface CustomerType {

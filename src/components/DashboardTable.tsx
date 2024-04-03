@@ -1,5 +1,5 @@
 import { Column } from "react-table";
-import TableHOC from "./TableHOC";
+import TableHOC from "./TableHOC.js";
 
 interface DataType {
   id: string;

@@ -1,5 +1,5 @@
-import { LineChart } from "../../components/Chart";
-import Sidebar from "../../components/Sidebar";
+import { LineChart } from "../../components/Chart.js";
+import Sidebar from "../../components/Sidebar.js";
 
 const months = [
   "January",

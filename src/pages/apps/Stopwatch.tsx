@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Sidebar from "../../components/Sidebar";
-import { formatTime } from "../../utils/formattime";
+import Sidebar from "../../components/Sidebar.js";
+import { formatTime } from "../../utils/formattime.js";
 
 const Stopwatch = () => {
   const [time, setTime] = useState<number>(0);
