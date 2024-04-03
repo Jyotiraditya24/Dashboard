@@ -1,5 +1,5 @@
 import { ReactElement, useCallback, useState } from "react";
-import { Column, useTable } from "react-table";
+import { Column } from "react-table";
 import Sidebar from "../components/Sidebar";
 import TableHOC from "../components/TableHOC";
 import { FaTrash } from "react-icons/fa";
