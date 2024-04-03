@@ -145,5 +145,31 @@ a{
      }
  }
  
+#hamburger{
+    display: grid;
+    place-items: center;
+    @include square(4rem);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: rgba(44,104,255);
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 10;
+}
 
-
+#close-sidebar {
+    width: 80%;
+    margin: 1rem auto;
+    display: block;
+    padding: 0.75rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: rgb(212, 12, 12);
+    color: white;
+    border-radius:10px;
+}
