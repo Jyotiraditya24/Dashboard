@@ -25,7 +25,21 @@ const App = () => {
             path="/"
             element={
               <Link to="/admin/dashboard">
-                <button>Visit Dashboard</button>
+                <button
+                  style={{
+                    backgroundColor: "blue",
+                    color: "white",
+                    padding: "10px 20px",
+                    fontSize: "16px",
+                    border: "none",
+                    borderRadius: "5px",
+                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                    cursor: "pointer",
+                    transition: "background-color 0.3s",
+                  }}
+                >
+                  Visit Dashboard
+                </button>
               </Link>
             }
           ></Route>
