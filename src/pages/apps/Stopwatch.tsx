@@ -6,7 +6,7 @@ const Stopwatch = () => {
   const [time, setTime] = useState<number>(0);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   useEffect(() => {
-    let intervalId: NodeJS.Timer;
+    let intervalId: any;
     if (isRunning) {
       intervalId = setInterval(() => {
         setTime((prev) => prev + 1);
